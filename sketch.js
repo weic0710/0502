@@ -36,8 +36,11 @@ function drawOverlayGraphics() {
       const r = capture.pixels[index];
       const g = capture.pixels[index + 1];
       const b = capture.pixels[index + 2];
-      overlayGraphics.fill(r, g, b); // 使用相對位置的顏色
-      overlayGraphics.ellipse(x + 10, y + 10, 15, 15); // 繪製圓
+      const gray = (r + g + b) / 3; // 計算灰階值
+      overlayGraphics.fill(gray); // 使用灰階值作為顏色
+      overlayGraphics.rect(x + 1, y + 1, 18, 18); // 繪製方框
+      overlayGraphics.fill(0); // 黑色圓
+      overlayGraphics.ellipse(x + 10, y + 10, 5, 5); // 繪製圓
     }
   }
 }
